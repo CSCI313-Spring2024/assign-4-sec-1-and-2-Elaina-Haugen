@@ -1,1 +1,25 @@
-<div>Hello World!</div>
+<div class="container w-50">
+    <div>
+        <h1>Contacts</h1>
+
+        <div><input class="form-control w-50 mb-1" [(ngModel)]="contact.firstname" name="firstName" placeholder="First Name">
+            <input class="form-control w-50 mb-1" [(ngModel)]="contact.lastname" name="lastName" placeholder="Last Name">
+            <input class="form-control w-50 mb-1" [(ngModel)]="contact.email" name="email" placeholder="Email">
+            <input class="form-control w-50 mb-1" [(ngModel)]="contact.phone" name="phone" placeholder="Phone">
+            <button class="btn btn-outline-primary" (click)="addContact()">Add</button>
+
+        </div>
+
+<hr>
+
+        <div >
+            @for(contact of contacts; track contact.id){
+            <app-contact-card [contact]=" contact"></app-contact-card>
+            <button class="btn btn-outline-primary" (click)="deleteContact(contact)">Delete</button>
+            <button class="btn btn-outline-primary" (click)="editContact(contact)">Edit</button>
+            }
+        </div>
+
+
+    </div>
+</div>
